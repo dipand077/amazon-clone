@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: rgba(255,255,255,0.1);
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 5px;
+      width: 80%;
+    }
+  </style>
 </head>
 <body>
-  <h1>Your Cart</h1>
+  <h1>Your Cart 🛒</h1>
   <ul id="cartItems"></ul>
   <p>Total: ₹<span id="totalPrice">0</span></p>
 
