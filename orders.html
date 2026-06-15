@@ -1,23 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://cdn.pixabay.com/photo/2017/08/06/00/00/shopping-2589189_1280.jpg') no-repeat center;
+      background-size: cover;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    .order {
+      background: rgba(255,255,255,0.9);
+      margin: 15px auto;
+      padding: 15px;
+      border-radius: 10px;
+      width: 80%;
+    }
+  </style>
 </head>
 <body>
-  <h1>My Orders</h1>
-  <ul id="orderItems"></ul>
+  <h1>My Orders 📦</h1>
+  <div id="orderItems"></div>
 
   <script>
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let list = document.getElementById("orderItems");
+    let container = document.getElementById("orderItems");
 
     if(cart.length === 0){
-      list.innerHTML = "<li>No orders yet.</li>";
+      container.innerHTML = "<p>No orders yet.</p>";
     } else {
       cart.forEach(item => {
-        let li = document.createElement("li");
-        li.innerHTML = `<strong>${item.name}</strong> - ₹${item.price} <br>Description: Amazon-style product description here.`;
-        list.appendChild(li);
+        let div = document.createElement("div");
+        div.classList.add("order");
+        div.innerHTML = `<h3>${item.name}</h3>
+                         <p>Price: ₹${item.price}</p>
+                         <p>Description: This is an Amazon-style product description for ${item.name}.</p>`;
+        container.appendChild(div);
       });
     }
   </script>
