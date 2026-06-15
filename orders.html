@@ -5,15 +5,21 @@
 </head>
 <body>
   <h1>My Orders</h1>
-  <div>
-    <h3>Wireless Headphones</h3>
-    <p>Price: ₹5999</p>
-    <p>Description: High quality wireless headphones with noise cancellation.</p>
-  </div>
-  <div>
-    <h3>Running Sneakers</h3>
-    <p>Price: ₹2999</p>
-    <p>Description: Lightweight sneakers perfect for jogging and sports.</p>
-  </div>
+  <ul id="orderItems"></ul>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let list = document.getElementById("orderItems");
+
+    if(cart.length === 0){
+      list.innerHTML = "<li>No orders yet.</li>";
+    } else {
+      cart.forEach(item => {
+        let li = document.createElement("li");
+        li.innerHTML = `<strong>${item.name}</strong> - ₹${item.price} <br>Description: Amazon-style product description here.`;
+        list.appendChild(li);
+      });
+    }
+  </script>
 </body>
 </html>
