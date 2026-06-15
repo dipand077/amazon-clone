@@ -88,7 +88,22 @@
   <footer>
     <p>© 2026 MyAmazon Clone. Built for practice.</p>
   </footer>
+  <script>
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      document.getElementById("cartCount").textContent = cart.length;
+    }
 
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({name, price});
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(name + " added to cart!");
+    }
+
+    updateCartCount();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
