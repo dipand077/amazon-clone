@@ -1,31 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign In</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://cdn.pixabay.com/photo/2016/11/29/05/08/coffee-1869598_1280.jpg') no-repeat center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: rgba(255,255,255,0.9);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #c0392b; }
+  </style>
 </head>
 <body>
-  <h1>Sign In</h1>
-  <form onsubmit="saveUser(event)">
-    <label>Name:</label><br>
-    <input type="text" id="name" required><br><br>
-    <label>Email:</label><br>
-    <input type="email" id="email" required><br><br>
-    <label>Password:</label><br>
-    <input type="password" id="password" required><br><br>
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    function saveUser(event) {
-      event.preventDefault();
-      let user = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value
-      };
-      localStorage.setItem("user", JSON.stringify(user));
-      alert("Welcome " + user.name + "! You are signed in.");
-      window.location.href = "index.html";
-    }
-  </script>
-</body>
-</html>
+  <div class="form-container">
