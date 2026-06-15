@@ -41,3 +41,25 @@
 </head>
 <body>
   <div class="form-container">
+    <h2>Sign In</h2>
+    <form onsubmit="saveUser(event)">
+      <input type="text" id="name" placeholder="Name" required><br>
+      <input type="email" id="email" placeholder="Email" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script>
+    function saveUser(event){
+      event.preventDefault();
+      let user = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value
+      };
+      localStorage.setItem("user", JSON.stringify(user));
+      alert("Welcome " + user.name + "! You are signed in.");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
